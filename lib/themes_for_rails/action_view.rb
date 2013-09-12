@@ -9,28 +9,16 @@ module ThemesForRails
       include ThemesForRails::CommonMethods
     end
 
-    def current_theme_stylesheet_path(asset)
-      base_theme_stylesheet_path(:theme => self.theme_name, :asset => "#{asset}.css")
-    end
-    
-    def current_theme_javascript_path(asset)
-      base_theme_javascript_path(:theme => self.theme_name, :asset => "#{asset}.js")
-    end
-
-    def current_theme_image_path(asset)
-      base_theme_image_path(:theme => self.theme_name, :asset => asset)
-    end
-
     def theme_stylesheet_path(asset, new_theme_name = self.theme_name)
-      base_theme_stylesheet_path(:theme => new_theme_name, :asset => "#{asset}.css")
+      stylesheet_path("#{new_theme_name}/stylesheets/#{asset}")
     end
 
     def theme_javascript_path(asset, new_theme_name = self.theme_name)
-      base_theme_javascript_path(:theme => new_theme_name, :asset => "#{asset}.js")
+      javascript_path("#{new_theme_name}/javascripts/#{asset}")
     end
 
     def theme_image_path(asset, new_theme_name = self.theme_name)
-      base_theme_image_path(:theme => new_theme_name, :asset => asset)
+      image_path("#{new_theme_name}/images/#{asset}")
     end
     
     def theme_image_tag(source, options = {})
